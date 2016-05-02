@@ -6,7 +6,13 @@
 #telephone keypad.
 #Example Execution: Input: 1-800-COMCAST Output: 1-800-266-2278
 
-phNo = raw_input("Phone Number: ")
+import string, sys
+table = string.maketrans(string.ascii_letters, '22233344455566677778889999' * 2)
+#basic = sys.argv[1].translate(table, '-')
+basic = raw_input("Number: ").translate(table, '-')
+print '{0}-{1}-{2}-{3}'.format(basic[0], basic[1:4], basic[4:7], basic[7:])
+
+#phNo = raw_input("Phone Number: ")
 keypad = {
 	1 : 1,
 	2 : ("a", "b", "c"),
@@ -18,3 +24,5 @@ keypad = {
 	8 : ("t", "u", "v"),
 	9 : ("w", "x", "y", "z") 
 }
+
+#print(keypad)
